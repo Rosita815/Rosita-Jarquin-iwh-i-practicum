@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= pageTitle
+  body
+    h1 Update CRM Record
+    form(action="/update-cobj", method="post")
+      div
+        label(for="property1") Property 1:
+        input(type="text", name="property1", id="property1", required)
+      div
+        label(for="property2") Property 2:
+        input(type="text", name="property2", id="property2", required)
+      div
+        label(for="property3") Property 3:
+        input(type="text", name="property3", id="property3", required)
+      button(type="submit") Submit
+    a(href="/") Return to the homepage

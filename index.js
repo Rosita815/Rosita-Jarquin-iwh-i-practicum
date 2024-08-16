@@ -1,6 +1,9 @@
 const express = require('express');
 const axios = require('axios');
+const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
+const port = 3000;
 
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
@@ -13,15 +16,26 @@ const PRIVATE_APP_ACCESS = '';
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
 // * Code for Route 1 goes here
-
+app.get('/', (req, res) => {
+    res.send('Welcome to the CRM App!');
+  });
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 // * Code for Route 2 goes here
-
+app.get('/update-cobj', (req, res) => {
+    res.render('updates');
+  });
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 
 // * Code for Route 3 goes here
-
+app.post('/update-cobj', (req, res) => {
+    const { property1, property2, property3 } = req.body;
+    // Here you would handle the CRM record creation logic with the provided data
+    console.log(`Property 1: ${property1}`);
+    console.log(`Property 2: ${property2}`);
+    console.log(`Property 3: ${property3}`);
+    res.send('CRM record updated!');
+  });
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
 

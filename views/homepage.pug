@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title CRM Records
+  body
+    h1 CRM Records
+    a(href="/update-cobj") Add to this table
+    table
+      thead
+        tr
+          th Property 1
+          th Property 2
+          th Property 3
+      tbody
+        each object in customObjects
+          tr
+            td= object.property1
+            td= object.property2
+            td= object.property3
